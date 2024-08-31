@@ -61,5 +61,5 @@ public class TencentSmsScript {
         // 实例化要请求产品的client对象,clientProfile是可选的
         return new SmsClient(cred, "ap-guangzhou", clientProfile);
     }
-    
+
 }

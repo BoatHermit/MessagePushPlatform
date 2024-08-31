@@ -62,13 +62,22 @@
                 <version>1.2.83</version>
             </dependency>
 
-
             <!--腾讯sdk(目前用在短信上)-->
             <dependency>
                 <groupId>com.tencentcloudapi</groupId>
                 <artifactId>tencentcloud-sdk-java</artifactId>
                 <version>3.1.510</version>
             </dependency>
+
+            <!--mysql驱动包-->
+            <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.1.0</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

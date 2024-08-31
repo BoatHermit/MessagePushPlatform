@@ -5,28 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad7e3b38-fa68-48ba-8a52-605db164d089" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/mpp-handler/src/main/java/com/boat/mpp/handler/TencentSmsScript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-web/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/dao/MessageTemplateDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/dao/SmsRecordDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/entity/MessageTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/entity/SmsRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-web/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-common/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-cron/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-cron/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-cron/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-handler/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-handler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-handler/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-service-impl/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-service-impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-service-api-impl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-service-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-stream/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-stream/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-stream/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-support/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mpp-handler/src/main/java/com/boat/mpp/handler/TencentSmsScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-handler/src/main/java/com/boat/mpp/handler/TencentSmsScript.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mpp-support/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-support/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-web/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mpp-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mpp-web/src/main/java/com/boat/mpp/web/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-web/src/main/java/com/boat/mpp/web/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mpp-web/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +31,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="com.intellij.jpb.JpaEntity" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -69,10 +65,10 @@
     "Spring Boot.MppApplication.executor": "Run",
     "Spring Boot.未命名.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yzh/Desktop/新建文件夹/MessagePushPlatform/mpp-web/src/main/resources",
+    "last_opened_file_path": "C:/Users/yzh/Desktop/新建文件夹/MessagePushPlatform",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,21 +81,26 @@
     "settings.editor.selected.configurable": "fileTemplates",
     "spring.configuration.checksum": "0f7a6c17a76fe293edcd694a6919dcbd",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform" />
       <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform\mpp-web\src\main\resources" />
       <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform\mpp-service-api-impl" />
       <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform\mpp-service-api" />
       <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform\mpp-common" />
-      <recent name="C:\Users\yzh\Desktop\新建文件夹\MessagePushPlatform\mpp-cron" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.boat.mpp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TencentSmsScript">
+  <component name="RunManager" selected="Spring Boot.MppApplication">
     <configuration name="TencentSmsScript" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.boat.mpp.handler.TencentSmsScript" />
       <module name="mpp-handler" />
@@ -128,8 +129,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TencentSmsScript" />
         <item itemvalue="Spring Boot.MppApplication" />
+        <item itemvalue="Application.TencentSmsScript" />
       </list>
     </recent_temporary>
   </component>
