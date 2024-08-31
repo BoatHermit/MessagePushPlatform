@@ -4,11 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.boat.mpp</groupId>
+    <groupId>com.boat</groupId>
     <artifactId>MessagePushPlatform</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>MessagePushPlatform</name>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>mpp-common</module>
@@ -16,8 +15,8 @@
         <module>mpp-stream</module>
         <module>mpp-handler</module>
         <module>mpp-web</module>
-        <module>mpp-service</module>
-        <module>mpp-service-impl</module>
+        <module>mpp-service-api</module>
+        <module>mpp-service-api-impl</module>
         <module>mpp-cron</module>
     </modules>
 
@@ -28,21 +27,48 @@
         <relativePath/>
     </parent>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flink.version>1.14.3</flink.version>
-        <target.java.version>1.8</target.java.version>
-        <scala.binary.version>2.11</scala.binary.version>
-        <maven.compiler.source>${target.java.version}</maven.compiler.source>
-        <maven.compiler.target>${target.java.version}</maven.compiler.target>
-        <log4j.version>2.17.1</log4j.version>
-        <weixin-java>4.5.3.B</weixin-java>
-    </properties>
+    <!-- <properties> -->
+    <!--     <java.version>1.8</java.version> -->
+    <!--     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+    <!--     <flink.version>1.14.3</flink.version> -->
+    <!--     <target.java.version>1.8</target.java.version> -->
+    <!--     <scala.binary.version>2.11</scala.binary.version> -->
+    <!--     <maven.compiler.source>${target.java.version}</maven.compiler.source> -->
+    <!--     <maven.compiler.target>${target.java.version}</maven.compiler.target> -->
+    <!--     <log4j.version>2.17.1</log4j.version> -->
+    <!--     <weixin-java>4.5.3.B</weixin-java> -->
+    <!-- </properties> -->
 
     <dependencyManagement>
         <dependencies>
+            <!--hutool工具包-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.15</version>
+            </dependency>
 
+            <!--guava工具包-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>31.0.1-jre</version>
+            </dependency>
+
+            <!--fastjson包-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.83</version>
+            </dependency>
+
+
+            <!--腾讯sdk(目前用在短信上)-->
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java</artifactId>
+                <version>3.1.510</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
