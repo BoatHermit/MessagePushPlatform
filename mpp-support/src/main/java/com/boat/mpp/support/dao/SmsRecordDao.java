@@ -1,6 +1,6 @@
 package com.boat.mpp.support.dao;
 
-import com.boat.mpp.support.entity.SmsRecord;
+import com.boat.mpp.support.domain.SmsRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
