@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad7e3b38-fa68-48ba-8a52-605db164d089" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/dao/MessageTemplateDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/dao/SmsRecordDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/entity/MessageTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-support/src/main/java/com/boat/mpp/support/entity/SmsRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp-web/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mpp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/domain/BatchSendRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/domain/MessageParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/domain/SendRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/domain/SendResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/enums/BusinessCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/service/RecallService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpp-service-api/src/main/java/com/boat/mpp/service/api/service/SendService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-handler/src/main/java/com/boat/mpp/handler/TencentSmsScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-handler/src/main/java/com/boat/mpp/handler/TencentSmsScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-support/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-support/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-web/src/main/java/com/boat/mpp/web/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-web/src/main/java/com/boat/mpp/web/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mpp-web/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mpp-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mpp-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mpp-service-api/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.intellij.jpb.JpaEntity" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

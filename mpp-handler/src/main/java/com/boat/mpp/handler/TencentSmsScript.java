@@ -35,8 +35,8 @@ public class TencentSmsScript {
             String[] phoneNumberSet1 = new String[]{phone};
             req.setPhoneNumberSet(phoneNumberSet1);
             req.setSmsSdkAppId(sdkAppId);
-            req.setSignName("Java3y公众号");
-            req.setTemplateId("1182097");
+            req.setSignName("木舟居士公众号");
+            req.setTemplateId("2049929");
             String[] templateParamSet1 = {content};
             req.setTemplateParamSet(templateParamSet1);
             req.setSessionContext(IdUtil.fastSimpleUUID());
