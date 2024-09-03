@@ -3,10 +3,12 @@ package com.boat.mpp.handler.receiver.kafka;
 import cn.hutool.core.collection.CollUtil;
 import com.alibaba.fastjson.JSON;
 import com.boat.mpp.common.domain.TaskInfo;
+import com.boat.mpp.handler.service.ConsumeService;
 import com.boat.mpp.handler.utils.GroupIdMappingUtils;
 import com.boat.mpp.support.constans.MessageQueuePipeline;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Scope;
@@ -28,6 +30,10 @@ import java.util.Optional;
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @ConditionalOnProperty(name = "mpp.mq.pipeline", havingValue = MessageQueuePipeline.KAFKA)
 public class Receiver {
+
+    @Autowired
+    private ConsumeService consumeService;
+
     /**
      * 发送消息
      *
@@ -45,7 +51,7 @@ public class Receiver {
                     .getGroupIdByTaskInfo(CollUtil.getFirst(taskInfoLists.iterator()));
             // 每个消费者组只消费他们自身关心的消息
             if (topicGroupId.equals(messageGroupId)) {
-                log.info("groupId:{},params:{}", messageGroupId, JSON.toJSONString(taskInfoLists));
+                consumeService.consume2Send(taskInfoLists);
             }
         }
     }
