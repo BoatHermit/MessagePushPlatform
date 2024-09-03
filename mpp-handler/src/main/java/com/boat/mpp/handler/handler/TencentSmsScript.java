@@ -1,8 +1,6 @@
-package com.boat.mpp.handler;
+package com.boat.mpp.handler.handler;
 
 import cn.hutool.core.util.IdUtil;
-import com.alibaba.fastjson.JSON;
-import com.google.common.base.Throwables;
 import com.tencentcloudapi.common.AbstractModel;
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;

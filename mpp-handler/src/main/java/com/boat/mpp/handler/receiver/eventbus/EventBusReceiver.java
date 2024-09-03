@@ -1,4 +1,4 @@
-package com.boat.mpp.receiver.eventbus;
+package com.boat.mpp.handler.receiver.eventbus;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.eventbus.Subscribe;
