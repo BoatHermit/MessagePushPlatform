@@ -11,6 +11,7 @@ import com.boat.mpp.support.domain.MessageTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,14 +24,12 @@ import java.util.List;
 @Slf4j
 public class TestController {
 
-    private final MessageTemplateDao messageTemplateDao;
-    private final SendService sendService;
-
     @Autowired
-    TestController(MessageTemplateDao messageTemplateDao, SendService sendService) {
-        this.messageTemplateDao = messageTemplateDao;
-        this.sendService = sendService;
-    }
+    private MessageTemplateDao messageTemplateDao;
+    @Autowired
+    private SendService sendService;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @RequestMapping("/test")
     private String test() {
@@ -43,6 +42,11 @@ public class TestController {
         List<MessageTemplate> list = messageTemplateDao
                 .findAllByIsDeletedEquals(0, PageRequest.of(0, 10));
         return JSON.toJSONString(list);
+    }
+    @RequestMapping("/redis")
+    private String testRedis() {
+        stringRedisTemplate.opsForValue().set("boat", "mpp");
+        return stringRedisTemplate.opsForValue().get("boat");
     }
 
     @RequestMapping("/send")
