@@ -30,7 +30,6 @@ public class ConsumeServiceImpl implements ConsumeService {
         for (TaskInfo taskInfo : taskInfoLists) {
             Task task = context.getBean(Task.class).setTaskInfo(taskInfo);
             taskPendingHolder.route(topicGroupId).execute(task);
-            // TODO
         }
     }
 

@@ -53,8 +53,8 @@ public class TestController {
     private String testSend() {
         SendRequest sendRequest = SendRequest.builder()
                 .code(BusinessCode.COMMON_SEND.getCode())
-                .messageTemplateId(1L)
-                .messageParam(MessageParam.builder().receiver("13722222222").build()).build();
+                .messageTemplateId(2L)
+                .messageParam(MessageParam.builder().receiver("yinzihang02@163.com").build()).build();
 
         SendResponse response = sendService.send(sendRequest);
         return JSON.toJSONString(response);

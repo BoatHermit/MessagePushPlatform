@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.handler.deduplication.DeduplicationRuleService;
 import com.boat.mpp.handler.discard.DiscardMessageService;
+import com.boat.mpp.handler.handler.HandlerHolder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -31,12 +32,14 @@ public class Task implements Runnable {
     private TaskInfo taskInfo;
     private DeduplicationRuleService deduplicationRuleService;
     private DiscardMessageService discardMessageService;
+    private HandlerHolder handlerHolder;
 
     @Autowired
-    public Task(DeduplicationRuleService deduplicationRuleService
-            , DiscardMessageService discardMessageService) {
+    public Task(DeduplicationRuleService deduplicationRuleService, DiscardMessageService discardMessageService
+            , HandlerHolder handlerHolder) {
         this.deduplicationRuleService = deduplicationRuleService;
         this.discardMessageService = discardMessageService;
+        this.handlerHolder = handlerHolder;
     }
 
     @Override
@@ -55,11 +58,11 @@ public class Task implements Runnable {
         if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
             deduplicationRuleService.duplication(taskInfo);
         }
-//
-//         // 3. 真正发送消息
-//         if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
-//             handlerHolder.route(taskInfo.getSendChannel()).doHandler(taskInfo);
-//         }
+
+        // 3. 真正发送消息
+        if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
+            handlerHolder.route(taskInfo.getSendChannel()).doHandler(taskInfo);
+        }
 
     }
 }

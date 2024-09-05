@@ -51,6 +51,4 @@ public abstract class AbstractDeduplicationService implements DeduplicationServi
      * @return
      */
     public abstract String deduplicationSingleKey(TaskInfo taskInfo, String receiver);
-
-
 }

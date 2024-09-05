@@ -1,4 +1,4 @@
-package com.boat.mpp.support.service;
+package com.boat.mpp.support.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.setting.dialect.Props;
