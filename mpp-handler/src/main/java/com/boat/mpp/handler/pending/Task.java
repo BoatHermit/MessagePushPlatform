@@ -3,6 +3,7 @@ package com.boat.mpp.handler.pending;
 import cn.hutool.core.collection.CollUtil;
 import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.handler.deduplication.DeduplicationRuleService;
+import com.boat.mpp.handler.discard.DiscardMessageService;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -29,10 +30,13 @@ public class Task implements Runnable {
 
     private TaskInfo taskInfo;
     private DeduplicationRuleService deduplicationRuleService;
+    private DiscardMessageService discardMessageService;
 
     @Autowired
-    public Task(DeduplicationRuleService deduplicationRuleService) {
+    public Task(DeduplicationRuleService deduplicationRuleService
+            , DiscardMessageService discardMessageService) {
         this.deduplicationRuleService = deduplicationRuleService;
+        this.discardMessageService = discardMessageService;
     }
 
     @Override
@@ -40,22 +44,22 @@ public class Task implements Runnable {
 
         log.info("task:" + Thread.currentThread().getName());
 
-//        // 0. 丢弃消息
-//        if (discardM  essageService.isDiscard(taskInfo)) {
-//            return;
-//        }
-//        // 1. 屏蔽消息
-//        shieldService.shield(taskInfo);
+        // 0. 丢弃消息
+        if (discardMessageService.isDiscard(taskInfo)) {
+           return;
+        }
+//         // 1. 屏蔽消息
+//         shieldService.shield(taskInfo);
 //
        // 2.平台通用去重
         if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
             deduplicationRuleService.duplication(taskInfo);
         }
 //
-//        // 3. 真正发送消息
-//        if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
-//            handlerHolder.route(taskInfo.getSendChannel()).doHandler(taskInfo);
-//        }
+//         // 3. 真正发送消息
+//         if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
+//             handlerHolder.route(taskInfo.getSendChannel()).doHandler(taskInfo);
+//         }
 
     }
 }
