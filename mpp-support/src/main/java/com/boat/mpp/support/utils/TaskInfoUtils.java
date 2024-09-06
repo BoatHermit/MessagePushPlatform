@@ -6,7 +6,7 @@ import cn.hutool.core.date.DateUtil;
 import java.util.Date;
 
 /**
- * 生成 消息推送的URL 工具类
+ * 生成 消息推送的 URL 工具类
  *
  * @author boat
  */

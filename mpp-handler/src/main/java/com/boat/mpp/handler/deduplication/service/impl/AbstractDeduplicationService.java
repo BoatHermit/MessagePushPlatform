@@ -1,11 +1,13 @@
 package com.boat.mpp.handler.deduplication.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
+import com.boat.mpp.common.domain.AnchorInfo;
 import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.handler.deduplication.DeduplicationHolder;
 import com.boat.mpp.handler.deduplication.DeduplicationParam;
 import com.boat.mpp.handler.deduplication.limit.LimitService;
 import com.boat.mpp.handler.deduplication.service.DeduplicationService;
+import com.boat.mpp.support.utils.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -23,6 +25,8 @@ public abstract class AbstractDeduplicationService implements DeduplicationServi
 
     @Autowired
     private DeduplicationHolder deduplicationHolder;
+    @Autowired
+    private LogUtils logUtils;
 
     @PostConstruct
     private void init() {
@@ -39,6 +43,8 @@ public abstract class AbstractDeduplicationService implements DeduplicationServi
         // 剔除符合去重条件的用户
         if (CollUtil.isNotEmpty(filterReceiver)) {
             taskInfo.getReceiver().removeAll(filterReceiver);
+            logUtils.print(AnchorInfo.builder().state(param.getAnchorState().getCode())
+                    .businessId(taskInfo.getBusinessId()).ids(filterReceiver).build());
         }
     }
 

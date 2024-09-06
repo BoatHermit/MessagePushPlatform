@@ -1,6 +1,9 @@
 package com.boat.mpp.handler.handler;
 
 import com.boat.mpp.common.domain.TaskInfo;
+import com.boat.mpp.common.domain.AnchorInfo;
+import com.boat.mpp.common.enums.AnchorState;
+import com.boat.mpp.support.utils.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +18,8 @@ public abstract class BaseHandler implements Handler {
 
     @Autowired
     private HandlerHolder handlerHolder;
+    @Autowired
+    private LogUtils logUtils;
 
     /**
      * 标识渠道的Code
@@ -35,8 +40,12 @@ public abstract class BaseHandler implements Handler {
     @Override
     public void doHandler(TaskInfo taskInfo) {
         if (handler(taskInfo)) {
+            logUtils.print(AnchorInfo.builder().state(AnchorState.SEND_SUCCESS.getCode())
+                    .businessId(taskInfo.getBusinessId()).ids(taskInfo.getReceiver()).build());
             return;
         }
+        logUtils.print(AnchorInfo.builder().state(AnchorState.SEND_FAIL.getCode())
+                .businessId(taskInfo.getBusinessId()).ids(taskInfo.getReceiver()).build());
     }
 
 

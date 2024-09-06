@@ -1,5 +1,6 @@
 package com.boat.mpp.service.api.impl.service;
 
+import cn.monitor4all.logRecord.annotation.OperationLog;
 import com.boat.mpp.common.vo.BasicResultVO;
 import com.boat.mpp.service.api.domain.BatchSendRequest;
 import com.boat.mpp.service.api.domain.SendRequest;
@@ -25,6 +26,8 @@ public class SendServiceImpl implements SendService {
     private ProcessController processController;
 
     @Override
+    @OperationLog(bizType = "SendService#send",
+            bizId = "#sendRequest.messageTemplateId", msg = "#sendRequest")
     public SendResponse send(SendRequest sendRequest) {
 
         SendTaskModel sendTaskModel = SendTaskModel.builder()
@@ -44,6 +47,8 @@ public class SendServiceImpl implements SendService {
     }
 
     @Override
+    @OperationLog(bizType = "SendService#batchSend",
+            bizId = "#batchSendRequest.messageTemplateId", msg = "#batchSendRequest")
     public SendResponse batchSend(BatchSendRequest batchSendRequest) {
         SendTaskModel sendTaskModel = SendTaskModel.builder()
                 .messageTemplateId(batchSendRequest.getMessageTemplateId())
