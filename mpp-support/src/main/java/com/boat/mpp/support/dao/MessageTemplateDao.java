@@ -3,10 +3,12 @@ package com.boat.mpp.support.dao;
 import com.boat.mpp.support.domain.MessageTemplate;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
 
-public interface MessageTemplateDao extends JpaRepository<MessageTemplate, Long> {
+public interface MessageTemplateDao extends JpaRepository<MessageTemplate, Long>
+        , JpaSpecificationExecutor<MessageTemplate> {
 
     /**
      * 查询 列表（分页)
@@ -14,7 +16,7 @@ public interface MessageTemplateDao extends JpaRepository<MessageTemplate, Long>
      * @param pageable 分页对象
      * @return 短信模板
      */
-    List<MessageTemplate> findAllByIsDeletedEquals(Integer isDeleted, Pageable pageable);
+    List<MessageTemplate> findAllByIsDeletedEqualsOrderByUpdatedDesc(Integer isDeleted, Pageable pageable);
 
 
     /**

@@ -2,6 +2,7 @@ package com.boat.mpp.support.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
+@Accessors(chain = true)
 @Table(name = "message_template")
 public class MessageTemplate implements Serializable {
     @Id

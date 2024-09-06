@@ -1,4 +1,4 @@
-package com.boat.mpp.web;
+package com.boat.mpp.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.boat.mpp.service.api.domain.MessageParam;
@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @author Boat
- */
+
 @RestController
 @Slf4j
 public class TestController {
@@ -37,12 +35,13 @@ public class TestController {
         log.info("log: Hello World");
         return "Hello!";
     }
+
     @RequestMapping("/database")
     private String testDataBase() {
-        List<MessageTemplate> list = messageTemplateDao
-                .findAllByIsDeletedEquals(0, PageRequest.of(0, 10));
+        List<MessageTemplate> list = messageTemplateDao.findAllByIsDeletedEqualsOrderByUpdatedDesc(0, PageRequest.of(0, 10));
         return JSON.toJSONString(list);
     }
+
     @RequestMapping("/redis")
     private String testRedis() {
         stringRedisTemplate.opsForValue().set("boat", "mpp");
@@ -53,9 +52,8 @@ public class TestController {
     private String testSend() {
         SendRequest sendRequest = SendRequest.builder()
                 .code(BusinessCode.COMMON_SEND.getCode())
-                .messageTemplateId(2L)
-                .messageParam(MessageParam.builder().receiver("yinzihang02@163.com").build()).build();
-
+                .messageTemplateId(1L)
+                .messageParam(MessageParam.builder().receiver("yinzihang02@gmail.com").build()).build();
         SendResponse response = sendService.send(sendRequest);
         return JSON.toJSONString(response);
 

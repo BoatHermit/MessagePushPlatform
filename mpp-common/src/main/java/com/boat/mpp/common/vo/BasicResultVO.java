@@ -6,11 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-/**
- * @author zzb
- * @since 2021.11.17
- */
-
 @Getter
 @ToString(callSuper = true)
 @AllArgsConstructor

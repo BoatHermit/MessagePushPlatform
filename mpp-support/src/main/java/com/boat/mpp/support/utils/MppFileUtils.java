@@ -28,7 +28,7 @@ public class MppFileUtils {
             }
             return file;
         } catch (Exception e) {
-            log.error("AustinFileUtils#getRemoteUrl2File fail:{},remoteUrl:{}", Throwables.getStackTraceAsString(e), remoteUrl);
+            log.error("MppFileUtils#getRemoteUrl2File fail:{},remoteUrl:{}", Throwables.getStackTraceAsString(e), remoteUrl);
         }
         return null;
     }
