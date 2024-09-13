@@ -1,8 +1,11 @@
 package com.boat.mpp.web.controller;
 
+import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.boat.mpp.common.enums.RespStatusEnum;
+import com.boat.mpp.common.vo.BasicResultVO;
 import com.boat.mpp.service.api.domain.MessageParam;
 import com.boat.mpp.service.api.domain.SendRequest;
 import com.boat.mpp.service.api.domain.SendResponse;
@@ -15,18 +18,19 @@ import com.boat.mpp.web.utils.Convert4Amis;
 import com.boat.mpp.web.vo.MessageTemplateParam;
 import com.boat.mpp.web.vo.MessageTemplateVo;
 import com.boat.mpp.web.vo.amis.CommonAmisVo;
+import com.google.common.base.Throwables;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.io.File;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -135,8 +139,43 @@ public class MessageTemplateController {
     }
 
 
+    /**
+     * 启动模板的定时任务
+     */
+    @PostMapping("start/{id}")
+    @ApiOperation("/启动模板的定时任务")
+    public BasicResultVO start(@RequestBody @PathVariable("id") Long id) {
+        return messageTemplateService.startCronTask(id);
+    }
 
+    /**
+     * 暂停模板的定时任务
+     */
+    @PostMapping("stop/{id}")
+    @ApiOperation("/暂停模板的定时任务")
+    public BasicResultVO stop(@RequestBody @PathVariable("id") Long id) {
+        return messageTemplateService.stopCronTask(id);
+    }
 
+    /**
+     * 上传人群文件
+     */
+    @PostMapping("upload")
+    @ApiOperation("/上传人群文件")
+    public HashMap<Object, Object> upload(@RequestParam("file") MultipartFile file) {
+        String filePath = dataPath + IdUtil.fastSimpleUUID() + file.getOriginalFilename();
+        try {
+            File localFile = new File(filePath);
+            if (!localFile.exists()) {
+                localFile.mkdirs();
+            }
+            file.transferTo(localFile);
+        } catch (Exception e) {
+            log.error("MessageTemplateController#upload fail! e:{},params{}", Throwables.getStackTraceAsString(e), JSON.toJSONString(file));
+            throw new CommonException(RespStatusEnum.SERVICE_ERROR);
+        }
+        return MapUtil.of(new String[][]{{"value", filePath}});
+    }
 
 }
 

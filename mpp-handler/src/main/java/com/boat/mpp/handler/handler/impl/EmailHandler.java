@@ -70,7 +70,8 @@ public class EmailHandler extends BaseHandler{
      * @return
      */
     private MailAccount getAccountConfig(Integer sendAccount) {
-        //MailAccount account = accountUtils.getAccountById(sendAccount, MailAccount.class);
+        // String defaultConfig = "{\"host\":\"smtp.qq.com\",\"port\":465,\"user\":\"403686131@qq.com\",\"pass\":\"123123123\",\"from\":\"403686131@qq.com\",\"starttlsEnable\":\"true\",\"auth\":true,\"sslEnable\":true}";
+        // MailAccount account = accountUtils.getAccountById(sendAccount, MailAccount.class);
 
         String config = configService.getProperty(EMAIL_ACCOUNT_KEY, CommonConstant.EMPTY_JSON_OBJECT);
         MailAccount account = JSON.parseObject(config, MailAccount.class);

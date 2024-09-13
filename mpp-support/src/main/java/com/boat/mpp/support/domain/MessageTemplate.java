@@ -31,7 +31,7 @@ public class MessageTemplate implements Serializable {
     private Integer msgStatus;
 
     @Column(name = "cron_task_id")
-    private Long cronTaskId;
+    private Integer cronTaskId;
 
     @Column(name = "cron_crowd_path", length = 500)
     private String cronCrowdPath;
