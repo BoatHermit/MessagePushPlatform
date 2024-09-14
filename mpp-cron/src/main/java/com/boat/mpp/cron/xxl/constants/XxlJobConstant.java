@@ -28,7 +28,7 @@ public class XxlJobConstant {
     /**
      * 执行任务名称
      */
-    public static final String JOB_HANDLER_NAME = "austinJob";
+    public static final String JOB_HANDLER_NAME = "mppJob";
 
     /**
      * 超时时间

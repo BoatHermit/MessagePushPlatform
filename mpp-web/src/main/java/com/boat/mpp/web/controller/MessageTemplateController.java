@@ -12,6 +12,7 @@ import com.boat.mpp.service.api.domain.SendResponse;
 import com.boat.mpp.service.api.enums.BusinessCode;
 import com.boat.mpp.service.api.service.SendService;
 import com.boat.mpp.support.domain.MessageTemplate;
+import com.boat.mpp.web.annotation.MppAspect;
 import com.boat.mpp.web.exception.CommonException;
 import com.boat.mpp.web.service.MessageTemplateService;
 import com.boat.mpp.web.utils.Convert4Amis;
@@ -37,6 +38,7 @@ import java.util.stream.Collectors;
 /**
  * 消息模板管理Controller
  */
+@MppAspect
 @Api(tags = "消息模板管理")
 @Slf4j
 @RestController

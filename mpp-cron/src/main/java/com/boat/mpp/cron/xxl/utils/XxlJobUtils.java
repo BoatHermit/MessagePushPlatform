@@ -56,7 +56,7 @@ public class XxlJobUtils {
                 .scheduleType(ScheduleTypeEnum.CRON.name())
                 .misfireStrategy(MisfireStrategyEnum.DO_NOTHING.name())
                 .executorRouteStrategy(ExecutorRouteStrategyEnum.CONSISTENT_HASH.name())
-                .executorHandler(XxlJobConstant.JOB_HANDLER_NAME)
+                .executorHandler(jobHandlerName)
                 .executorParam(String.valueOf(messageTemplate.getId()))
                 .executorBlockStrategy(ExecutorBlockStrategyEnum.SERIAL_EXECUTION.name())
                 .executorTimeout(XxlJobConstant.TIME_OUT)
