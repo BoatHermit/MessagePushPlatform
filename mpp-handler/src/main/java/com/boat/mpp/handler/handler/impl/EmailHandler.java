@@ -4,9 +4,7 @@ package com.boat.mpp.handler.handler.impl;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
-import com.alibaba.fastjson.JSON;
-import com.boat.mpp.common.constant.CommonConstant;
-import com.boat.mpp.support.service.ConfigService;
+import com.boat.mpp.support.utils.AccountUtils;
 import com.google.common.base.Throwables;
 import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.common.dto.model.EmailContentModel;
@@ -35,12 +33,12 @@ public class EmailHandler extends BaseHandler{
     private static final String EMAIL_ACCOUNT_KEY = "emailAccount";
     @Value("${mpp.business.upload.crowd.path}")
     private String dataPath;
-    private ConfigService configService;
 
     @Autowired
-    public EmailHandler(ConfigService config) {
+    private AccountUtils accountUtils;
+
+    public EmailHandler() {
         channelCode = ChannelType.EMAIL.getCode();
-        this.configService = config;
     }
 
     @Override
@@ -70,11 +68,8 @@ public class EmailHandler extends BaseHandler{
      * @return
      */
     private MailAccount getAccountConfig(Integer sendAccount) {
-        // String defaultConfig = "{\"host\":\"smtp.qq.com\",\"port\":465,\"user\":\"403686131@qq.com\",\"pass\":\"123123123\",\"from\":\"403686131@qq.com\",\"starttlsEnable\":\"true\",\"auth\":true,\"sslEnable\":true}";
-        // MailAccount account = accountUtils.getAccountById(sendAccount, MailAccount.class);
 
-        String config = configService.getProperty(EMAIL_ACCOUNT_KEY, CommonConstant.EMPTY_JSON_OBJECT);
-        MailAccount account = JSON.parseObject(config, MailAccount.class);
+        MailAccount account = accountUtils.getAccountById(sendAccount, MailAccount.class);
         try {
             MailSSLSocketFactory sf = new MailSSLSocketFactory();
             sf.setTrustAllHosts(true);

@@ -27,17 +27,13 @@
         <relativePath/>
     </parent>
 
-    <!-- <properties> -->
-    <!--     <java.version>1.8</java.version> -->
-    <!--     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
-    <!--     <flink.version>1.14.3</flink.version> -->
-    <!--     <target.java.version>1.8</target.java.version> -->
-    <!--     <scala.binary.version>2.11</scala.binary.version> -->
-    <!--     <maven.compiler.source>${target.java.version}</maven.compiler.source> -->
-    <!--     <maven.compiler.target>${target.java.version}</maven.compiler.target> -->
-    <!--     <log4j.version>2.17.1</log4j.version> -->
-    <!--     <weixin-java>4.5.3.B</weixin-java> -->
-    <!-- </properties> -->
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <target.java.version>1.8</target.java.version>
+        <maven.compiler.source>${target.java.version}</maven.compiler.source>
+        <maven.compiler.target>${target.java.version}</maven.compiler.target>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -136,6 +132,13 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>2.3.0</version>
+            </dependency>
+
+            <!--企业微信第三方SDK-->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-cp</artifactId>
+                <version>4.6.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
