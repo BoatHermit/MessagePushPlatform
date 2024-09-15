@@ -5,6 +5,7 @@ import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.handler.deduplication.DeduplicationRuleService;
 import com.boat.mpp.handler.discard.DiscardMessageService;
 import com.boat.mpp.handler.handler.HandlerHolder;
+import com.boat.mpp.handler.shield.ShieldService;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,8 @@ public class Task implements Runnable {
     private DeduplicationRuleService deduplicationRuleService;
     private DiscardMessageService discardMessageService;
     private HandlerHolder handlerHolder;
+    @Autowired
+    private ShieldService shieldService;
 
     @Autowired
     public Task(DeduplicationRuleService deduplicationRuleService, DiscardMessageService discardMessageService
@@ -51,10 +54,11 @@ public class Task implements Runnable {
         if (discardMessageService.isDiscard(taskInfo)) {
            return;
         }
-//         // 1. 屏蔽消息
-//         shieldService.shield(taskInfo);
-//
-       // 2.平台通用去重
+
+        // 1. 屏蔽消息
+        shieldService.shield(taskInfo);
+
+        // 2.平台通用去重
         if (CollUtil.isNotEmpty(taskInfo.getReceiver())) {
             deduplicationRuleService.duplication(taskInfo);
         }
