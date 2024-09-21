@@ -2,6 +2,7 @@ package com.boat.mpp.handler.utils;
 
 import com.boat.mpp.common.domain.TaskInfo;
 import com.boat.mpp.common.enums.ChannelType;
+import com.boat.mpp.common.enums.EnumUtil;
 import com.boat.mpp.common.enums.MessageType;
 
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class GroupIdMappingUtils {
      * @return
      */
     public static String getGroupIdByTaskInfo(TaskInfo taskInfo) {
-        String channelCodeEn = ChannelType.getEnumByCode(taskInfo.getSendChannel()).getCodeEn();
-        String msgCodeEn = MessageType.getEnumByCode(taskInfo.getMsgType()).getCodeEn();
+        String channelCodeEn = EnumUtil.getEnumByCode(taskInfo.getSendChannel(), ChannelType.class).getCodeEn();
+        String msgCodeEn = EnumUtil.getEnumByCode(taskInfo.getMsgType(), MessageType.class).getCodeEn();
         return channelCodeEn + "." + msgCodeEn;
     }
 }

@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Slf4j
 public class MppFileUtils {
@@ -31,5 +34,23 @@ public class MppFileUtils {
             log.error("MppFileUtils#getRemoteUrl2File fail:{},remoteUrl:{}", Throwables.getStackTraceAsString(e), remoteUrl);
         }
         return null;
+    }
+
+    /**
+     * 读取 远程链接集合 返回有效的File对象集合
+     *
+     * @param path      文件路径
+     * @param remoteUrls cdn/oss文件访问链接集合
+     * @return
+     */
+    public static List<File> getRemoteUrl2File(String path, Collection<String> remoteUrls) {
+        List<File> files = new ArrayList<>();
+        remoteUrls.forEach(remoteUrl -> {
+            File file = getRemoteUrl2File(path, remoteUrl);
+            if (file != null) {
+                files.add(file);
+            }
+        });
+        return files;
     }
 }
