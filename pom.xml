@@ -18,6 +18,7 @@
         <module>mpp-service-api</module>
         <module>mpp-service-api-impl</module>
         <module>mpp-cron</module>
+        <module>mpp-data-warehouse</module>
     </modules>
 
     <parent>

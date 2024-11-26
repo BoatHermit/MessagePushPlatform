@@ -32,13 +32,13 @@ public class MppConstant {
      * 默认的常量，如果新建模板/账号时，没传入则用该常量
      */
     public static final String DEFAULT_CREATOR = "Boat";
-    public static final String DEFAULT_UPDATOR = "Boat";
+    public static final String DEFAULT_UPDATER = "Boat";
     public static final String DEFAULT_TEAM = "木舟居士公众号";
     public static final String DEFAULT_AUDITOR = "Boat";
 
     /**
      * 链路追踪缓存的key标识
      */
-    public static final String CACHE_KEY_PREFIX = "Boat";
+    public static final String CACHE_KEY_PREFIX = "MPP";
     public static final String MESSAGE_ID = "MessageId";
 }

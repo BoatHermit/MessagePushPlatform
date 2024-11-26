@@ -168,7 +168,7 @@ public class MessageTemplateServiceImpl implements MessageTemplateService {
         messageTemplate.setFlowId(StrUtil.EMPTY)
                 .setMsgStatus(MessageStatus.INIT.getCode()).setAuditStatus(AuditStatus.WAIT_AUDIT.getCode())
                 .setCreator(StrUtil.isBlank(messageTemplate.getCreator()) ? MppConstant.DEFAULT_CREATOR : messageTemplate.getCreator())
-                .setUpdator(StrUtil.isBlank(messageTemplate.getUpdator()) ? MppConstant.DEFAULT_UPDATOR : messageTemplate.getUpdator())
+                .setUpdator(StrUtil.isBlank(messageTemplate.getUpdator()) ? MppConstant.DEFAULT_UPDATER : messageTemplate.getUpdator())
                 .setTeam(StrUtil.isBlank(messageTemplate.getTeam()) ? MppConstant.DEFAULT_TEAM : messageTemplate.getTeam())
                 .setAuditor(StrUtil.isBlank(messageTemplate.getAuditor()) ? MppConstant.DEFAULT_AUDITOR : messageTemplate.getAuditor())
                 .setCreated(Math.toIntExact(DateUtil.currentSeconds()))
